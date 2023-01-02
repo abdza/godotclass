@@ -1,0 +1,1 @@
+This is the default repository for all godotclass projects
