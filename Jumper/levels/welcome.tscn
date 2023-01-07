@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Friday Night.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://arts/title.png" type="Texture" id=2]
+[ext_resource path="res://levels/welcome.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_size = 1
+outline_color = Color( 0.184314, 0.662745, 0.113725, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "highlight_start"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("start:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.992157, 1, 0.992157, 1 ), Color( 0.207843, 0.607843, 0.0784314, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "highlight_exit"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("exit:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.0509804, 0.537255, 0.0705882, 1 ) ]
+}
+
+[node name="welcome" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 344, 128 )
+texture = ExtResource( 2 )
+
+[node name="exit" type="Label" parent="."]
+margin_left = 352.0
+margin_top = 312.0
+margin_right = 584.0
+margin_bottom = 431.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Exit
+"
+
+[node name="start" type="Label" parent="."]
+margin_left = 352.0
+margin_top = 240.0
+margin_right = 648.0
+margin_bottom = 298.0
+custom_colors/font_color = Color( 0.992157, 1, 0.992157, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Start"
+
+[node name="animation_start" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/highlight_start = SubResource( 3 )
+
+[node name="animation_exit" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/highlight_exit = SubResource( 4 )
