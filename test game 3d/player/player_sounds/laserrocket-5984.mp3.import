@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/laserrocket-5984.mp3-6385d3cd7fe58bddd1f9304db2dd31cd.mp3str"
+
+[deps]
+
+source_file="res://player/player_sounds/laserrocket-5984.mp3"
+dest_files=[ "res://.import/laserrocket-5984.mp3-6385d3cd7fe58bddd1f9304db2dd31cd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

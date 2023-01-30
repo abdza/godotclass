@@ -1,0 +1,147 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://script/start.gd" type="Script" id=1]
+[ext_resource path="res://player/player_texture/stryder laser cannon.png" type="Texture" id=2]
+[ext_resource path="res://player/player_texture/stryderhc player godot.png" type="Texture" id=3]
+[ext_resource path="res://player/player_texture/ogertank player godot.png" type="Texture" id=4]
+[ext_resource path="res://player/player_texture/ogercannon/ogercannon base godot.png" type="Texture" id=5]
+[ext_resource path="res://Armory placeholder.png" type="Texture" id=6]
+
+[node name="start" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="play" type="RichTextLabel" parent="."]
+margin_left = 474.5
+margin_top = 240.0
+margin_right = 502.5
+margin_bottom = 256.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 13.5, 8 )
+text = "Play"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit" type="RichTextLabel" parent="."]
+margin_left = 472.0
+margin_top = 352.0
+margin_right = 500.0
+margin_bottom = 364.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 14, 6.9375 )
+text = "Quit"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="change" type="RichTextLabel" parent="."]
+margin_left = 464.0
+margin_top = 296.0
+margin_right = 512.0
+margin_bottom = 311.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 23.7498, 5.97644 )
+text = "Armory"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="base" type="Sprite" parent="."]
+position = Vector2( 488, 456 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="arrow" type="Sprite" parent="."]
+position = Vector2( -128, -80 )
+scale = Vector2( 0.105, 0.105 )
+texture = ExtResource( 2 )
+
+[node name="strder" type="Sprite" parent="."]
+position = Vector2( 488.078, 459.318 )
+rotation = -1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+offset = Vector2( 33.1787, -0.775879 )
+
+[node name="oger" type="Sprite" parent="."]
+position = Vector2( 1135.32, 374.476 )
+rotation = -1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 4 )
+offset = Vector2( -5.40187, 2.26123 )
+
+[node name="cannon" type="Sprite" parent="."]
+position = Vector2( 1135.44, 372.186 )
+rotation = -1.5708
+scale = Vector2( 0.11, 0.11 )
+texture = ExtResource( 5 )
+offset = Vector2( 68.8567, 1.07812 )
+
+[node name="lazer" type="Sprite" parent="."]
+position = Vector2( 487.845, 458.875 )
+rotation = -1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+offset = Vector2( 28.7485, 1.55078 )
+
+[node name="Armory" type="Sprite" parent="."]
+position = Vector2( 1024, 1152 )
+scale = Vector2( 0.8, 0.7 )
+texture = ExtResource( 6 )
+offset = Vector2( -340, -388.571 )
+
+[node name="chassisarmory" type="RichTextLabel" parent="."]
+margin_left = 600.0
+margin_top = 648.0
+margin_right = 648.0
+margin_bottom = 663.0
+rect_scale = Vector2( 3, 3 )
+rect_pivot_offset = Vector2( 24.2397, 6.7655 )
+text = "chassis"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="weaponarmory" type="RichTextLabel" parent="."]
+margin_left = 848.0
+margin_top = 648.0
+margin_right = 900.0
+margin_bottom = 663.0
+rect_scale = Vector2( 3, 3 )
+rect_pivot_offset = Vector2( 23.7498, 5.97644 )
+text = "weapon"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="strder2" type="Sprite" parent="."]
+position = Vector2( 624, 760 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+offset = Vector2( 33.1787, -0.775879 )
+
+[node name="oger2" type="Sprite" parent="."]
+position = Vector2( 624, 912 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+offset = Vector2( -5.40187, 2.26123 )
+
+[node name="cannon2" type="Sprite" parent="."]
+position = Vector2( 864, 912 )
+rotation = -1.5708
+scale = Vector2( 0.22, 0.22 )
+texture = ExtResource( 5 )
+offset = Vector2( 68.8567, 1.07812 )
+
+[node name="lazer2" type="Sprite" parent="."]
+position = Vector2( 872, 752 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+offset = Vector2( 28.7485, 1.55078 )

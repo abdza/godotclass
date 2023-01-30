@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://player/player_texture/ogertank player godot.png" type="Texture" id=1]
+[ext_resource path="res://player/player_script/Oger.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 271.5, 235.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 260.5, 216.5 )
+
+[node name="Body" type="Sprite"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="box" type="CollisionShape2D" parent="hitbox"]
+position = Vector2( -1.5, -0.5 )
+shape = SubResource( 1 )
+
+[node name="Kini" type="KinematicBody2D" parent="."]
+
+[node name="kinicolli" type="CollisionShape2D" parent="Kini"]
+shape = SubResource( 2 )
