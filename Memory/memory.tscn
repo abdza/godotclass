@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://bspjdpe5qmfbc"]
+
+[ext_resource type="Script" path="res://memory.gd" id="1_1vi8b"]
+[ext_resource type="Texture2D" uid="uid://cc2w3qdiecucn" path="res://images/06_apple_pie_dish.png" id="1_pkboc"]
+[ext_resource type="Texture2D" uid="uid://dlvemuobf7mlx" path="res://images/14_bacon_dish.png" id="3_gtff4"]
+[ext_resource type="Texture2D" uid="uid://c1xq6udlafj1b" path="res://images/16_burger_dish.png" id="4_godb4"]
+[ext_resource type="Texture2D" uid="uid://b32g8fkmypdgl" path="res://images/21_bagel_dish.png" id="5_4p4fv"]
+[ext_resource type="Texture2D" uid="uid://jxd4fsi224pe" path="res://images/25_cheesepuff_bowl.png" id="6_4kve4"]
+[ext_resource type="Texture2D" uid="uid://cr5clpj4kgd2" path="res://images/37_dumplings_dish.png" id="7_3nhvf"]
+[ext_resource type="Texture2D" uid="uid://ijk5vp6aumq7" path="res://images/43_eggtart_dish.png" id="8_pssq0"]
+[ext_resource type="Texture2D" uid="uid://cql26ma1nlbxg" path="res://images/45_frenchfries_dish.png" id="9_746ps"]
+[ext_resource type="Texture2D" uid="uid://c2oq4is1hp1s6" path="res://images/square.png" id="10_7kju7"]
+
+[node name="Memory" type="Node2D"]
+script = ExtResource("1_1vi8b")
+
+[node name="food1" type="Sprite2D" parent="."]
+position = Vector2(199, 190)
+scale = Vector2(4, 4)
+texture = ExtResource("1_pkboc")
+
+[node name="food2" type="Sprite2D" parent="."]
+position = Vector2(418, 200)
+scale = Vector2(4, 4)
+texture = ExtResource("3_gtff4")
+
+[node name="food3" type="Sprite2D" parent="."]
+position = Vector2(630, 198)
+scale = Vector2(4, 4)
+texture = ExtResource("4_godb4")
+
+[node name="food4" type="Sprite2D" parent="."]
+position = Vector2(843, 195)
+scale = Vector2(4, 4)
+texture = ExtResource("5_4p4fv")
+
+[node name="food5" type="Sprite2D" parent="."]
+position = Vector2(214, 357)
+scale = Vector2(4, 4)
+texture = ExtResource("6_4kve4")
+
+[node name="food6" type="Sprite2D" parent="."]
+position = Vector2(413, 371)
+scale = Vector2(4, 4)
+texture = ExtResource("7_3nhvf")
+
+[node name="food7" type="Sprite2D" parent="."]
+position = Vector2(627, 371)
+scale = Vector2(4, 4)
+texture = ExtResource("8_pssq0")
+
+[node name="food8" type="Sprite2D" parent="."]
+position = Vector2(839, 371)
+scale = Vector2(4, 4)
+texture = ExtResource("9_746ps")
+
+[node name="selector" type="Sprite2D" parent="."]
+position = Vector2(195, 190)
+scale = Vector2(2, 2)
+texture = ExtResource("10_7kju7")

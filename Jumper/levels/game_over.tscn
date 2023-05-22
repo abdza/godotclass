@@ -3,8 +3,8 @@
 [node name="game_over" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
-margin_left = 504.0
-margin_top = 288.0
-margin_right = 580.0
-margin_bottom = 302.0
+offset_left = 504.0
+offset_top = 288.0
+offset_right = 580.0
+offset_bottom = 302.0
 text = "GAME OVER"

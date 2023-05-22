@@ -24,7 +24,7 @@ func _process(delta):
 		menuchanged = true
 	elif Input.is_action_just_pressed("ui_accept"):
 		if menuselected==0:
-			get_tree().change_scene("res://levels/Level 1.tscn")
+			get_tree().change_scene_to_file("res://levels/Level 1.tscn")
 		elif menuselected==1:
 			get_tree().quit()
 	

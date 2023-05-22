@@ -1,6 +1,6 @@
 extends Area2D
 
-export var level := 0
+@export var level := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,6 +16,6 @@ func _on_Exit_body_entered(body):
 		var nextlevel = level + 1
 		var nextlevelresource = "res://levels/Level " + str(nextlevel) + ".tscn"
 		if ResourceLoader.exists(nextlevelresource):
-			get_tree().change_scene(nextlevelresource)
+			get_tree().change_scene_to_file(nextlevelresource)
 		else:
-			get_tree().change_scene("res://levels/winner.tscn")
+			get_tree().change_scene_to_file("res://levels/winner.tscn")

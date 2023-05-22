@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 
 # Declare member variables here. Examples:
@@ -6,16 +6,16 @@ extends KinematicBody2D
 # var b = "text"
 
 var velocity = Vector2.ZERO
-export var speed := 300
-export var gravity := 300
-export var jump_strength := -200
-export var score := 0
+@export var speed := 300
+@export var gravity := 300
+@export var jump_strength := -200
+@export var score := 0
 var jumpcount = 0
 var is_dead = false
 
 func _ready():
-	$AnimatedSprite.animation = "idle"
-	$AnimatedSprite.playing = true
+	$AnimatedSprite2D.animation = "idle"
+	$AnimatedSprite2D.playing = true
 	is_dead = false
 	score = 0
 
@@ -30,10 +30,10 @@ func _physics_process(delta):
 	var is_idling = is_on_floor() and is_zero_approx(velocity.x)
 	var is_running = is_on_floor() and not is_zero_approx(velocity.x)
 	
-	if Input.is_action_just_pressed("ui_left") and not $AnimatedSprite.flip_h:
-		$AnimatedSprite.flip_h = true
-	if Input.is_action_just_pressed("ui_right") and $AnimatedSprite.flip_h:
-		$AnimatedSprite.flip_h = false
+	if Input.is_action_just_pressed("ui_left") and not $AnimatedSprite2D.flip_h:
+		$AnimatedSprite2D.flip_h = true
+	if Input.is_action_just_pressed("ui_right") and $AnimatedSprite2D.flip_h:
+		$AnimatedSprite2D.flip_h = false
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -42,26 +42,28 @@ func _physics_process(delta):
 		is_dead = true
 		
 	if is_jumping:
-		$AnimatedSprite.animation = 'jump'
+		$AnimatedSprite2D.animation = 'jump'
 		velocity.y = jump_strength
 		jumpcount += 1
 	elif is_double_jumping:
 		if jumpcount<1:
-			$AnimatedSprite.animation = 'jump'
+			$AnimatedSprite2D.animation = 'jump'
 			velocity.y = jump_strength
 			jumpcount += 1
 	elif is_falling:
-		$AnimatedSprite.animation = "fall"
+		$AnimatedSprite2D.animation = "fall"
 	elif is_running:
-		$AnimatedSprite.animation = "walking"
+		$AnimatedSprite2D.animation = "walking"
 	elif is_idling:
-		$AnimatedSprite.animation = "idle"
+		$AnimatedSprite2D.animation = "idle"
 	
 	if is_on_floor():
 		jumpcount = 0
 	
-	move_and_slide(velocity,Vector2.UP)
-	for i in get_slide_count():
+	set_velocity(velocity)
+	set_up_direction(Vector2.UP)
+	move_and_slide()
+	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.is_in_group("enemy"):
 			var enemy = collision.collider
@@ -74,4 +76,4 @@ func _physics_process(delta):
 	
 	$score.text = str(score)
 	if is_dead:
-		get_tree().change_scene("res://levels/game_over.tscn")
+		get_tree().change_scene_to_file("res://levels/game_over.tscn")

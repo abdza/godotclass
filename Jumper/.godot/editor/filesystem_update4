@@ -1,0 +1,4 @@
+res://default_env.tres
+res://levels/welcome.tscn
+res://character/mushroom.tscn
+res://character/player.tscn
