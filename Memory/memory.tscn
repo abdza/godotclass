@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://bspjdpe5qmfbc"]
 
 [ext_resource type="Script" path="res://memory.gd" id="1_1vi8b"]
-[ext_resource type="Texture2D" uid="uid://cc2w3qdiecucn" path="res://images/06_apple_pie_dish.png" id="1_pkboc"]
-[ext_resource type="Texture2D" uid="uid://dlvemuobf7mlx" path="res://images/14_bacon_dish.png" id="3_gtff4"]
-[ext_resource type="Texture2D" uid="uid://c1xq6udlafj1b" path="res://images/16_burger_dish.png" id="4_godb4"]
-[ext_resource type="Texture2D" uid="uid://b32g8fkmypdgl" path="res://images/21_bagel_dish.png" id="5_4p4fv"]
-[ext_resource type="Texture2D" uid="uid://jxd4fsi224pe" path="res://images/25_cheesepuff_bowl.png" id="6_4kve4"]
-[ext_resource type="Texture2D" uid="uid://cr5clpj4kgd2" path="res://images/37_dumplings_dish.png" id="7_3nhvf"]
-[ext_resource type="Texture2D" uid="uid://ijk5vp6aumq7" path="res://images/43_eggtart_dish.png" id="8_pssq0"]
-[ext_resource type="Texture2D" uid="uid://cql26ma1nlbxg" path="res://images/45_frenchfries_dish.png" id="9_746ps"]
-[ext_resource type="Texture2D" uid="uid://c2oq4is1hp1s6" path="res://images/square.png" id="10_7kju7"]
+[ext_resource type="Texture2D" uid="uid://bhp1bmvds4jua" path="res://images/06_apple_pie_dish.png" id="1_pkboc"]
+[ext_resource type="Texture2D" uid="uid://rd57fy36ni1l" path="res://images/14_bacon_dish.png" id="3_gtff4"]
+[ext_resource type="Texture2D" uid="uid://dn7sj4761tbw2" path="res://images/16_burger_dish.png" id="4_godb4"]
+[ext_resource type="Texture2D" uid="uid://cnttwheadyau6" path="res://images/21_bagel_dish.png" id="5_4p4fv"]
+[ext_resource type="Texture2D" uid="uid://ce6lsqcq15ubi" path="res://images/25_cheesepuff_bowl.png" id="6_4kve4"]
+[ext_resource type="Texture2D" uid="uid://btkqeewbq478u" path="res://images/37_dumplings_dish.png" id="7_3nhvf"]
+[ext_resource type="Texture2D" uid="uid://dg586torkvp7c" path="res://images/43_eggtart_dish.png" id="8_pssq0"]
+[ext_resource type="Texture2D" uid="uid://bq1m6oi7jbmx3" path="res://images/45_frenchfries_dish.png" id="9_746ps"]
+[ext_resource type="Texture2D" uid="uid://cjgjsws3pojgb" path="res://images/square.png" id="10_7kju7"]
 
 [node name="Memory" type="Node2D"]
 script = ExtResource("1_1vi8b")
@@ -35,7 +35,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("5_4p4fv")
 
 [node name="food5" type="Sprite2D" parent="."]
-position = Vector2(214, 357)
+position = Vector2(209, 359)
 scale = Vector2(4, 4)
 texture = ExtResource("6_4kve4")
 
