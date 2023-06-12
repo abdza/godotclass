@@ -20,6 +20,8 @@ var foodpics = [
 	'37_dumplings_dish.png'
 	]
 
+var hiddendishes = [0,0,0,0,0,0,0,0]
+
 var curpos = Vector2(0,0)
 func _input(event):
 	
@@ -43,19 +45,40 @@ func _input(event):
 	$selector.position = finalposition
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	
-	for i in range(8):
-		var nodename = 'food' + str(i + 1)
+func _ready():	
+	var donechoice = []
+	for i in range(4):		
+		var randomchoice = ( randi() % ( len(foodpics) - 2 ) ) + 2  # always between 2 - 15
+		while randomchoice in donechoice:
+			randomchoice = ( randi() % ( len(foodpics) - 2 ) ) + 2  # always between 2 - 15
+		
+		donechoice.append(randomchoice)
+		
+		var firstplate = randi() % 8
+		while hiddendishes[firstplate] != 0:
+			firstplate = randi() % 8
+		
+		hiddendishes[firstplate] = randomchoice
+		
+		var secondplate = randi() % 8
+		while hiddendishes[secondplate] != 0:
+			secondplate = randi() % 8
+		
+		hiddendishes[secondplate] = randomchoice
+		
+		var nodename = 'food' + str(firstplate + 1)
 		print(nodename)
 		var curnode = get_node(nodename)
-		var randomchoice = ( randi() % ( len(foodpics) - 2 ) ) + 2  # always between 2 - 15
-		var imagename = "res://images/" + foodpics[randomchoice]
+		var imagename = "res://images/" + foodpics[hiddendishes[firstplate]]
 		print(imagename)
 		curnode.texture = load(imagename)
-		
-	var curchoice = ( randi() % ( len(foodpics) - 2 ) ) + 2  # always between 2 - 15
-	print(curchoice)
+	
+		nodename = 'food' + str(secondplate + 1)
+		print(nodename)
+		curnode = get_node(nodename)
+		imagename = "res://images/" + foodpics[hiddendishes[secondplate]]
+		print(imagename)
+		curnode.texture = load(imagename)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
