@@ -21,6 +21,9 @@ var foodpics = [
 	]
 
 var hiddendishes = [0,0,0,0,0,0,0,0]
+var curdishes = [0,0,0,0,0,0,0,0]
+
+var selected_plate = []
 
 var curpos = Vector2(0,0)
 func _input(event):
@@ -40,10 +43,21 @@ func _input(event):
 	if event.is_action_pressed("ui_down"):
 		if curpos.y<len(positionsy)-1:
 			curpos.y += 1
+	if event.is_action_pressed("ui_text_newline"):
+		var curselect = curpos.x + curpos.y * 4
+		print(curselect)
 
 	var finalposition = Vector2(positionsx[curpos.x],positionsy[curpos.y])
 	$selector.position = finalposition
 
+func display_plate(plate, food_num):
+	var nodename = 'food' + str(plate + 1)
+	print(nodename)
+	var curnode = get_node(nodename)
+	var imagename = "res://images/" + foodpics[food_num]
+	print(imagename)
+	curnode.texture = load(imagename)
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():	
 	var donechoice = []
@@ -66,19 +80,22 @@ func _ready():
 		
 		hiddendishes[secondplate] = randomchoice
 		
-		var nodename = 'food' + str(firstplate + 1)
-		print(nodename)
-		var curnode = get_node(nodename)
-		var imagename = "res://images/" + foodpics[hiddendishes[firstplate]]
-		print(imagename)
-		curnode.texture = load(imagename)
+		display_plate(firstplate,hiddendishes[firstplate])
+		display_plate(secondplate,hiddendishes[secondplate])
+		
+		#var nodename = 'food' + str(firstplate + 1)
+		#print(nodename)
+		#var curnode = get_node(nodename)
+		#var imagename = "res://images/" + foodpics[hiddendishes[firstplate]]
+		#print(imagename)
+		#curnode.texture = load(imagename)
 	
-		nodename = 'food' + str(secondplate + 1)
-		print(nodename)
-		curnode = get_node(nodename)
-		imagename = "res://images/" + foodpics[hiddendishes[secondplate]]
-		print(imagename)
-		curnode.texture = load(imagename)
+		#nodename = 'food' + str(secondplate + 1)
+		#print(nodename)
+		#curnode = get_node(nodename)
+		#imagename = "res://images/" + foodpics[hiddendishes[secondplate]]
+		#print(imagename)
+		#curnode.texture = load(imagename)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
