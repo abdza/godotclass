@@ -44,8 +44,22 @@ func _input(event):
 		if curpos.y<len(positionsy)-1:
 			curpos.y += 1
 	if event.is_action_pressed("ui_text_newline"):
-		var curselect = curpos.x + curpos.y * 4
+		var curselect = curpos.x + curpos.y * 4  # find the currently selected plate
 		print(curselect)
+		if not curselect in selected_plate:  # check that the currently selected plate is not yet selected
+			if len(selected_plate)<2:  # check that the user has not selected more than 2 plates
+				selected_plate.append(curselect)  # add the currently selected plate to the list of selected plates
+				display_plate(curselect, hiddendishes[curselect])  # display the dish of the plate that was selected
+				
+				if len(selected_plate)==2:  # user already selected 2 plates now, we need to compate them
+					if hiddendishes[selected_plate[0]] == hiddendishes[selected_plate[1]]: # both plate 1 and 2 are the same
+						curdishes[selected_plate[0]] = hiddendishes[selected_plate[0]] # set first selection solved
+						curdishes[selected_plate[1]] = hiddendishes[selected_plate[1]] # set second selection solved
+						selected_plate.clear() # clear the list of currently user selected plates
+			else: # user has chosen more than 2 plates. Need to clear them
+				for i in range(8):  #  loop over the 8 dished
+					display_plate(i,curdishes[i])  # display them back to the currently solved plates
+				selected_plate.clear()  # clear the list of currently user selected plates
 
 	var finalposition = Vector2(positionsx[curpos.x],positionsy[curpos.y])
 	$selector.position = finalposition
@@ -80,8 +94,8 @@ func _ready():
 		
 		hiddendishes[secondplate] = randomchoice
 		
-		display_plate(firstplate,hiddendishes[firstplate])
-		display_plate(secondplate,hiddendishes[secondplate])
+		display_plate(firstplate,curdishes[firstplate])
+		display_plate(secondplate,curdishes[secondplate])
 		
 		#var nodename = 'food' + str(firstplate + 1)
 		#print(nodename)
@@ -101,3 +115,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
