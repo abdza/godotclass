@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://2ljuwuwnxkwt"]
+
+[ext_resource type="Script" path="res://congrats.gd" id="1_gdbv2"]
+
+[node name="Congrats" type="Node2D"]
+script = ExtResource("1_gdbv2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 381.0
+offset_top = 219.0
+offset_right = 844.0
+offset_bottom = 402.0
+theme_override_font_sizes/font_size = 80
+text = "Congrats"

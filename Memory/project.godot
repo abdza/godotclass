@@ -11,6 +11,6 @@ config_version=5
 [application]
 
 config/name="Memory"
-run/main_scene="res://memory.tscn"
+run/main_scene="res://welcome.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"

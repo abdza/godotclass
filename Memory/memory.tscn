@@ -15,7 +15,7 @@
 script = ExtResource("1_1vi8b")
 
 [node name="food1" type="Sprite2D" parent="."]
-position = Vector2(199, 190)
+position = Vector2(197, 197)
 scale = Vector2(4, 4)
 texture = ExtResource("1_pkboc")
 

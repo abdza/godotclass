@@ -24,6 +24,7 @@ var hiddendishes = [0,0,0,0,0,0,0,0]
 var curdishes = [0,0,0,0,0,0,0,0]
 
 var selected_plate = []
+var pairs_solved = 0
 
 var curpos = Vector2(0,0)
 func _input(event):
@@ -53,9 +54,12 @@ func _input(event):
 				
 				if len(selected_plate)==2:  # user already selected 2 plates now, we need to compate them
 					if hiddendishes[selected_plate[0]] == hiddendishes[selected_plate[1]]: # both plate 1 and 2 are the same
+						pairs_solved += 1
 						curdishes[selected_plate[0]] = hiddendishes[selected_plate[0]] # set first selection solved
 						curdishes[selected_plate[1]] = hiddendishes[selected_plate[1]] # set second selection solved
 						selected_plate.clear() # clear the list of currently user selected plates
+						if pairs_solved==4:
+							get_tree().change_scene_to_file("res://congrats.tscn")
 			else: # user has chosen more than 2 plates. Need to clear them
 				for i in range(8):  #  loop over the 8 dished
 					display_plate(i,curdishes[i])  # display them back to the currently solved plates
