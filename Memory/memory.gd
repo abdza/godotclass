@@ -45,6 +45,7 @@ func _input(event):
 		if curpos.y<len(positionsy)-1:
 			curpos.y += 1
 	if event.is_action_pressed("ui_text_newline"):
+		$sound.play()
 		var curselect = curpos.x + curpos.y * 4  # find the currently selected plate
 		print(curselect)
 		if not curselect in selected_plate:  # check that the currently selected plate is not yet selected

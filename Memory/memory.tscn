@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bspjdpe5qmfbc"]
+[gd_scene load_steps=13 format=3 uid="uid://bspjdpe5qmfbc"]
 
 [ext_resource type="Script" path="res://memory.gd" id="1_1vi8b"]
 [ext_resource type="Texture2D" uid="uid://bhp1bmvds4jua" path="res://images/06_apple_pie_dish.png" id="1_pkboc"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dg586torkvp7c" path="res://images/43_eggtart_dish.png" id="8_pssq0"]
 [ext_resource type="Texture2D" uid="uid://bq1m6oi7jbmx3" path="res://images/45_frenchfries_dish.png" id="9_746ps"]
 [ext_resource type="Texture2D" uid="uid://cjgjsws3pojgb" path="res://images/square.png" id="10_7kju7"]
+[ext_resource type="AudioStream" uid="uid://casxyi45ngrtd" path="res://audio/clink.wav" id="11_upqgt"]
+[ext_resource type="AudioStream" uid="uid://py1xgkkostbn" path="res://audio/jazzyfrenchy.mp3" id="12_scawp"]
 
 [node name="Memory" type="Node2D"]
 script = ExtResource("1_1vi8b")
@@ -58,3 +60,10 @@ texture = ExtResource("9_746ps")
 position = Vector2(195, 190)
 scale = Vector2(2, 2)
 texture = ExtResource("10_7kju7")
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_upqgt")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_scawp")
+autoplay = true
