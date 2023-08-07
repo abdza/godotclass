@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://fkka2y3ruhr1"]
+
+[ext_resource type="Script" path="res://block.gd" id="1_582mw"]
+[ext_resource type="Texture2D" uid="uid://ckkoxeq7y83fk" path="res://images/05_apple_pie.png" id="1_vch4q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ll6f"]
+
+[node name="Block" type="Node2D"]
+script = ExtResource("1_582mw")
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_vch4q")
+
+[node name="area" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="collision" type="CollisionShape2D" parent="area"]
+shape = SubResource("RectangleShape2D_4ll6f")
+
+[connection signal="mouse_entered" from="area" to="." method="_on_area_mouse_entered"]
+[connection signal="mouse_exited" from="area" to="." method="_on_area_mouse_exited"]
