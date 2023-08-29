@@ -7,47 +7,143 @@
 script = ExtResource("1_6qrph")
 
 [node name="food_0_0" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(369, 514)
+position = Vector2(369, 159)
 
 [node name="food_0_1" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(432, 516)
+position = Vector2(432, 161)
 posx = 1
 
 [node name="food_0_2" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(497, 516)
+position = Vector2(497, 161)
 posx = 2
 
 [node name="food_0_3" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(563, 517)
+position = Vector2(563, 162)
 posx = 3
 
 [node name="food_0_4" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(629, 517)
+position = Vector2(629, 162)
 posx = 4
 
 [node name="food_1_0" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(370, 455)
+position = Vector2(370, 216)
 posy = 1
 
 [node name="food_1_1" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(433, 457)
+position = Vector2(433, 218)
 posx = 1
 posy = 1
 
 [node name="food_1_2" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(498, 457)
+position = Vector2(498, 218)
 posx = 2
 posy = 1
 
 [node name="food_1_3" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(564, 458)
+position = Vector2(564, 219)
 posx = 3
 posy = 1
 
 [node name="food_1_4" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(630, 458)
+position = Vector2(630, 219)
 posx = 4
 posy = 1
+
+[node name="food_5_0" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(369, 457)
+posy = 5
+
+[node name="food_5_1" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(432, 459)
+posx = 1
+posy = 5
+
+[node name="food_5_2" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(497, 459)
+posx = 2
+posy = 5
+
+[node name="food_5_3" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(563, 460)
+posx = 3
+posy = 5
+
+[node name="food_5_4" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(629, 460)
+posx = 4
+posy = 5
+
+[node name="food_4_0" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(370, 398)
+posy = 4
+
+[node name="food_4_1" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(433, 400)
+posx = 1
+posy = 4
+
+[node name="food_4_2" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(498, 400)
+posx = 2
+posy = 4
+
+[node name="food_4_3" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(564, 401)
+posx = 3
+posy = 4
+
+[node name="food_4_4" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(630, 401)
+posx = 4
+posy = 4
+
+[node name="food_3_0" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(370, 337)
+posy = 3
+
+[node name="food_3_1" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(433, 339)
+posx = 1
+posy = 3
+
+[node name="food_3_2" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(498, 339)
+posx = 2
+posy = 3
+
+[node name="food_3_3" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(564, 340)
+posx = 3
+posy = 3
+
+[node name="food_3_4" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(630, 340)
+posx = 4
+posy = 3
+
+[node name="food_2_0" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(371, 278)
+posy = 2
+
+[node name="food_2_1" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(434, 280)
+posx = 1
+posy = 2
+
+[node name="food_2_2" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(499, 280)
+posx = 2
+posy = 2
+
+[node name="food_2_3" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(565, 281)
+posx = 3
+posy = 2
+
+[node name="food_2_4" parent="." instance=ExtResource("2_0rany")]
+position = Vector2(631, 281)
+posx = 4
+posy = 2
 
 [connection signal="mouse_entered" from="food_0_0" to="." method="_on_food_mouse_entered"]
 [connection signal="mouse_entered" from="food_0_1" to="." method="_on_food_mouse_entered"]
@@ -59,3 +155,23 @@ posy = 1
 [connection signal="mouse_entered" from="food_1_2" to="." method="_on_food_mouse_entered"]
 [connection signal="mouse_entered" from="food_1_3" to="." method="_on_food_mouse_entered"]
 [connection signal="mouse_entered" from="food_1_4" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_5_0" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_5_1" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_5_2" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_5_3" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_5_4" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_4_0" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_4_1" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_4_2" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_4_3" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_4_4" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_3_0" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_3_1" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_3_2" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_3_3" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_3_4" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_2_0" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_2_1" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_2_2" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_2_3" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_entered" from="food_2_4" to="." method="_on_food_mouse_entered"]

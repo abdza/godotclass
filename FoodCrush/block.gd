@@ -3,17 +3,18 @@ extends Node2D
 signal mouse_entered
 @export var posx = 0
 @export var posy = 0
+@export var cur_selected = false
 
 var on_mouse = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$selected.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	$selected.visible = cur_selected
 
 
 func _on_area_mouse_entered():
