@@ -34,7 +34,7 @@ func _ready():
 	for row in range(6):
 		for col in range(5):
 			grid.append(randi() % len(foodpics))
-			changepic(row,col,grid[row * 5 + col])				
+			changepic(row,col,grid[row * 5 + col])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -42,6 +42,11 @@ func _process(delta):
 
 func swap_pic(a,b):
 	print("Will swap ",a," with ",b)
+	var tmpgrid = grid[a.x * 5 + a.y]
+	grid[a.x * 5 + a.y] = grid[b.x * 5 + b.y]
+	grid[b.x * 5 + b.y] = tmpgrid
+	changepic(a.x,a.y,grid[a.x * 5 + a.y])
+	changepic(b.x,b.y,grid[b.x * 5 + b.y])
 	change_selected(a)
 	change_selected(b)
 	selected_pic.clear()
