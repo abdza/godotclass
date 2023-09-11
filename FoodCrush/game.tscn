@@ -7,7 +7,7 @@
 script = ExtResource("1_6qrph")
 
 [node name="food_0_0" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(369, 159)
+position = Vector2(369, 161)
 
 [node name="food_0_1" parent="." instance=ExtResource("2_0rany")]
 position = Vector2(432, 161)
@@ -18,39 +18,39 @@ position = Vector2(497, 161)
 posx = 2
 
 [node name="food_0_3" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(563, 162)
+position = Vector2(561, 161)
 posx = 3
 
 [node name="food_0_4" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(629, 162)
+position = Vector2(625, 161)
 posx = 4
 
 [node name="food_1_0" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(370, 216)
+position = Vector2(370, 220)
 posy = 1
 
 [node name="food_1_1" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(433, 218)
+position = Vector2(433, 221)
 posx = 1
 posy = 1
 
 [node name="food_1_2" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(498, 218)
+position = Vector2(497, 222)
 posx = 2
 posy = 1
 
 [node name="food_1_3" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(564, 219)
+position = Vector2(561, 223)
 posx = 3
 posy = 1
 
 [node name="food_1_4" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(630, 219)
+position = Vector2(625, 222)
 posx = 4
 posy = 1
 
 [node name="food_5_0" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(369, 457)
+position = Vector2(370, 459)
 posy = 5
 
 [node name="food_5_1" parent="." instance=ExtResource("2_0rany")]
@@ -69,7 +69,7 @@ posx = 3
 posy = 5
 
 [node name="food_5_4" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(629, 460)
+position = Vector2(626, 460)
 posx = 4
 posy = 5
 
@@ -93,7 +93,7 @@ posx = 3
 posy = 4
 
 [node name="food_4_4" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(630, 401)
+position = Vector2(627, 401)
 posx = 4
 posy = 4
 
@@ -117,7 +117,7 @@ posx = 3
 posy = 3
 
 [node name="food_3_4" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(630, 340)
+position = Vector2(627, 340)
 posx = 4
 posy = 3
 
@@ -141,7 +141,7 @@ posx = 3
 posy = 2
 
 [node name="food_2_4" parent="." instance=ExtResource("2_0rany")]
-position = Vector2(631, 281)
+position = Vector2(626, 282)
 posx = 4
 posy = 2
 
