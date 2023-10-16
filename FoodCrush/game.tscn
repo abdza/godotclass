@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxffeepklq6hr"]
+[gd_scene load_steps=4 format=3 uid="uid://cxffeepklq6hr"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_6qrph"]
 [ext_resource type="PackedScene" uid="uid://fkka2y3ruhr1" path="res://block.tscn" id="2_0rany"]
+[ext_resource type="PackedScene" uid="uid://dvmdveiac6fkq" path="res://hud.tscn" id="3_bcew1"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_6qrph")
@@ -144,6 +145,9 @@ posy = 2
 position = Vector2(626, 282)
 posx = 4
 posy = 2
+
+[node name="HUD" parent="." instance=ExtResource("3_bcew1")]
+position = Vector2(4, 9)
 
 [connection signal="mouse_entered" from="food_0_0" to="." method="_on_food_mouse_entered"]
 [connection signal="mouse_entered" from="food_0_1" to="." method="_on_food_mouse_entered"]

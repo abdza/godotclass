@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvwymf0nnjdyn"]
+
+[ext_resource type="Script" path="res://mainmenu.gd" id="1_iettn"]
+[ext_resource type="Texture2D" uid="uid://be4li6ab2al54" path="res://images/04_bowl.png" id="2_imuwo"]
+
+[node name="mainmenu" type="Node2D"]
+script = ExtResource("1_iettn")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(564, 370)
+scale = Vector2(34.9688, 17.6875)
+texture = ExtResource("2_imuwo")
+
+[node name="title" type="Label" parent="."]
+offset_left = 190.0
+offset_top = 30.0
+offset_right = 970.0
+offset_bottom = 238.0
+theme_override_font_sizes/font_size = 150
+text = "FoodCrush"
+
+[node name="new_game_btn" type="Button" parent="."]
+offset_left = 428.0
+offset_top = 307.0
+offset_right = 684.0
+offset_bottom = 370.0
+theme_override_font_sizes/font_size = 30
+text = "New Game"
+
+[node name="exit_btn" type="Button" parent="."]
+offset_left = 430.0
+offset_top = 421.0
+offset_right = 685.0
+offset_bottom = 483.0
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[connection signal="pressed" from="new_game_btn" to="." method="_on_new_game_btn_pressed"]
+[connection signal="pressed" from="exit_btn" to="." method="_on_exit_btn_pressed"]

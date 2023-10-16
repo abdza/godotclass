@@ -16,6 +16,9 @@ var grid = []
 var selected_pic = []
 var curhover = Vector2(0,0)
 var found_same = []
+var score = 0
+var userplaying = false
+
 
 enum GAME_STATE { WAITING, CHECKING, DESTROYING }
 var gamestate = GAME_STATE.WAITING
@@ -95,7 +98,10 @@ func updatestates():
 				grid[curdestroy.pos.y * 5 + curdestroy.pos.x] = grid[(curdestroy.pos.y - 1) * 5 + curdestroy.pos.x]
 				curdestroy.pos.y -= 1
 			grid[curdestroy.pos.x] = randi() % len(foodpics)
-			
+			if userplaying:
+				score += 10
+			$HUD.scoreval = score
+			print("Score: ",score)
 		else:
 			gamestate = GAME_STATE.CHECKING
 	updatepics()
@@ -119,6 +125,7 @@ func swap_pic(a,b):
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed() and gamestate == GAME_STATE.WAITING:
 		print("First:",selected_pic)
+		userplaying = true
 		change_selected(curhover)
 		if selected_pic.size()==0:
 			selected_pic.append(curhover)			
