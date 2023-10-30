@@ -12,6 +12,7 @@ var foodpics = [
 	'23_cheesecake_dish.png'
 	]
 
+var target_score = [50,100,200,600,750,1000]
 var grid = []
 var selected_pic = []
 var curhover = Vector2(0,0)
@@ -68,6 +69,9 @@ func checkgrid(row,col):
 									
 func updatestates():
 	if gamestate == GAME_STATE.CHECKING:
+		print("Checking score")
+		if score >= target_score[Global.playerlevel - 1]:
+			get_tree().change_scene_to_file("res://won_level.tscn")
 		print("In checking rows")
 		for row in range(6):
 			for col in range(5):
@@ -77,7 +81,7 @@ func updatestates():
 				gamestate = GAME_STATE.DESTROYING
 			if gamestate == GAME_STATE.CHECKING:
 				found_same.clear()
-	if gamestate == GAME_STATE.CHECKING:
+	if gamestate == GAME_STATE.CHECKING:		
 		print("In checking cols")
 		for col in range(5):
 			for row in range(6):

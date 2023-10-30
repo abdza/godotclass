@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs2mk6qsiqsko"]
+
+[ext_resource type="Script" path="res://won_level.gd" id="1_jogyw"]
+
+[node name="won_level" type="Node2D"]
+script = ExtResource("1_jogyw")
+
+[node name="message" type="Label" parent="."]
+offset_left = 309.0
+offset_top = 265.0
+offset_right = 819.0
+offset_bottom = 364.0
+theme_override_font_sizes/font_size = 70
+text = "Level complete"
+
+[node name="btn_next" type="Button" parent="."]
+offset_left = 464.0
+offset_top = 412.0
+offset_right = 672.0
+offset_bottom = 484.0
+theme_override_font_sizes/font_size = 30
+text = "Next"
+
+[connection signal="pressed" from="btn_next" to="." method="_on_btn_next_pressed"]
