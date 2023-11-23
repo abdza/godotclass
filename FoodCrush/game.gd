@@ -41,6 +41,7 @@ func _ready():
 			grid.append(randi() % len(foodpics))
 			changepic(row,col,grid[row * 5 + col])
 	gamestate = GAME_STATE.CHECKING
+	$HUD.targetval = target_score[Global.playerlevel - 1]
 	updatestates()
 			
 func updatepics():
@@ -105,6 +106,7 @@ func updatestates():
 			if userplaying:
 				score += 10
 			$HUD.scoreval = score
+			$HUD.targetval = target_score[Global.playerlevel - 1]
 			print("Score: ",score)
 		else:
 			gamestate = GAME_STATE.CHECKING

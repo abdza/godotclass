@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var scoreval = 0
+@export var targetval = 0
 
 
 
@@ -11,4 +12,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$score.text = str(scoreval)
+	$score.text = str(scoreval) + " / " + str(targetval)
+	$level.text = "Level " + str(Global.playerlevel)
