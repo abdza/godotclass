@@ -13,12 +13,14 @@ var foodpics = [
 	]
 
 var target_score = [50,100,200,600,750,1000]
+var turnlimit = [3,5,8,12,15,18]
 var grid = []
 var selected_pic = []
 var curhover = Vector2(0,0)
 var found_same = []
 var score = 0
 var userplaying = false
+var turnstaken = 0
 
 
 enum GAME_STATE { WAITING, CHECKING, DESTROYING }
@@ -41,6 +43,7 @@ func _ready():
 			grid.append(randi() % len(foodpics))
 			changepic(row,col,grid[row * 5 + col])
 	gamestate = GAME_STATE.CHECKING
+	turnstaken = 0
 	$HUD.targetval = target_score[Global.playerlevel - 1]
 	updatestates()
 			
@@ -94,6 +97,12 @@ func updatestates():
 				found_same.clear()
 	if gamestate == GAME_STATE.CHECKING:
 		gamestate = GAME_STATE.WAITING
+		turnstaken += 1
+		$HUD.turnval = turnstaken - 1
+		$HUD.turntargetval = turnlimit[Global.playerlevel - 1]
+		if turnstaken > turnlimit[Global.playerlevel - 1]:
+			get_tree().change_scene_to_file("res://lose_level.tscn")
+		print("Turns:",turnstaken)
 	if gamestate == GAME_STATE.DESTROYING:
 		print("Destroying state")
 		if found_same.size()>0:			

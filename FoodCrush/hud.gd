@@ -2,6 +2,8 @@ extends Node2D
 
 @export var scoreval = 0
 @export var targetval = 0
+@export var turnval = 0
+@export var turntargetval = 0
 
 
 
@@ -14,3 +16,4 @@ func _ready():
 func _process(delta):
 	$score.text = str(scoreval) + " / " + str(targetval)
 	$level.text = "Level " + str(Global.playerlevel)
+	$turns.text = str(turnval) + " / " + str(turntargetval)

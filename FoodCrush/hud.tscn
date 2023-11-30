@@ -20,3 +20,11 @@ offset_right = 130.0
 offset_bottom = 84.0
 theme_override_font_sizes/font_size = 40
 text = "Level"
+
+[node name="turns" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 92.0
+offset_right = 92.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 40
+text = "0/0"
