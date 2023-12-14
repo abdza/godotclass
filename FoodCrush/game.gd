@@ -127,6 +127,7 @@ func _process(delta):
 
 func swap_pic(a,b):
 	print("Will swap ",a," with ",b)
+
 	var tmpgrid = grid[a.x * 5 + a.y]
 	grid[a.x * 5 + a.y] = grid[b.x * 5 + b.y]
 	grid[b.x * 5 + b.y] = tmpgrid
