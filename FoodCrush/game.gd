@@ -13,7 +13,7 @@ var foodpics = [
 	]
 
 var target_score = [50,100,200,600,750,1000]
-var turnlimit = [3,5,8,12,15,18]
+var turnlimit = [300,5,8,12,15,18]
 var grid = []
 var selected_pic = []
 var curhover = Vector2(0,0)
@@ -21,9 +21,10 @@ var found_same = []
 var score = 0
 var userplaying = false
 var turnstaken = 0
+var animating_blocks = []
+var toswap = []
 
-
-enum GAME_STATE { WAITING, CHECKING, DESTROYING }
+enum GAME_STATE { WAITING, CHECKING, DESTROYING, ANIMATING }
 var gamestate = GAME_STATE.WAITING
 
 func changepic(row,col,pic):
@@ -37,6 +38,20 @@ func change_selected(location):
 	var curnode = get_node(nodename)
 	curnode.cur_selected = not curnode.cur_selected
 	
+func change_animation(location,animation):
+	var nodename = 'food_' + str(location.x) + '_' + str(location.y)
+	var curnode = get_node(nodename)
+	print("Changing animation for ",curnode," to ",animation)
+	curnode.current_animation = animation
+	
+func check_animation(location):
+	var nodename = 'food_' + str(location.x) + '_' + str(location.y)
+	var curnode = get_node(nodename)
+	if curnode.current_animation == "":
+		return false
+	else:
+		return true
+		
 func _ready():
 	for row in range(6):
 		for col in range(5):
@@ -55,43 +70,56 @@ func updatepics():
 func checkgrid(row,col):
 	if gamestate == GAME_STATE.CHECKING:
 		var gridpos = row * 5 + col
-		print("Checking row ",row," and col ",col, " food ",grid[gridpos])
+		# print("Checking row ",row," and col ",col, " food ",grid[gridpos])
 		if found_same.size()==0:
 			found_same.append({"pos":Vector2(col,row),"food":grid[gridpos]})
 		else:
-			print("Prev food: ",found_same[0].food," Cur food:",grid[gridpos])
+			# print("Prev food: ",found_same[0].food," Cur food:",grid[gridpos])
 			if found_same[0].food == grid[gridpos]:
 				found_same.append({"pos":Vector2(col,row),"food":grid[gridpos]})
-				print("Found same:",found_same)
+				# print("Found same:",found_same)
 			else:
 				if found_same.size()>=3:
-					print("Will destroy ",found_same)
+					# print("Will destroy ",found_same)
 					gamestate = GAME_STATE.DESTROYING
 				if gamestate == GAME_STATE.CHECKING:
 					found_same.clear()
 					found_same.append({"pos":Vector2(col,row),"food":grid[gridpos]})
 									
 func updatestates():
+	if gamestate == GAME_STATE.ANIMATING:
+		for block in animating_blocks:
+			if not check_animation(block):
+				animating_blocks.erase(block)
+		if animating_blocks.size()==0:
+			var a = toswap[0]
+			var b = toswap[1]
+			var tmpgrid = grid[a.x * 5 + a.y]
+			grid[a.x * 5 + a.y] = grid[b.x * 5 + b.y]
+			grid[b.x * 5 + b.y] = tmpgrid
+			changepic(a.x,a.y,grid[a.x * 5 + a.y])
+			changepic(b.x,b.y,grid[b.x * 5 + b.y])
+			gamestate = GAME_STATE.CHECKING
 	if gamestate == GAME_STATE.CHECKING:
-		print("Checking score")
+		# print("Checking score")
 		if score >= target_score[Global.playerlevel - 1]:
 			get_tree().change_scene_to_file("res://won_level.tscn")
-		print("In checking rows")
+		# print("In checking rows")
 		for row in range(6):
 			for col in range(5):
 				checkgrid(row,col)
 			if found_same.size()>=3:
-				print("Will destroy ",found_same)
+				# print("Will destroy ",found_same)
 				gamestate = GAME_STATE.DESTROYING
 			if gamestate == GAME_STATE.CHECKING:
 				found_same.clear()
 	if gamestate == GAME_STATE.CHECKING:		
-		print("In checking cols")
+		# print("In checking cols")
 		for col in range(5):
 			for row in range(6):
 				checkgrid(row,col)
 			if found_same.size()>=3:
-				print("Will destroy ",found_same)
+				# print("Will destroy ",found_same)
 				gamestate = GAME_STATE.DESTROYING
 			if gamestate == GAME_STATE.CHECKING:
 				found_same.clear()
@@ -102,12 +130,12 @@ func updatestates():
 		$HUD.turntargetval = turnlimit[Global.playerlevel - 1]
 		if turnstaken > turnlimit[Global.playerlevel - 1]:
 			get_tree().change_scene_to_file("res://lose_level.tscn")
-		print("Turns:",turnstaken)
+		# print("Turns:",turnstaken)
 	if gamestate == GAME_STATE.DESTROYING:
-		print("Destroying state")
+		# print("Destroying state")
 		if found_same.size()>0:			
 			var curdestroy = found_same.pop_front()
-			print("Destorying ",curdestroy)
+			# print("Destorying ",curdestroy)
 			while curdestroy.pos.y > 0:
 				grid[curdestroy.pos.y * 5 + curdestroy.pos.x] = grid[(curdestroy.pos.y - 1) * 5 + curdestroy.pos.x]
 				curdestroy.pos.y -= 1
@@ -116,7 +144,7 @@ func updatestates():
 				score += 10
 			$HUD.scoreval = score
 			$HUD.targetval = target_score[Global.playerlevel - 1]
-			print("Score: ",score)
+			# print("Score: ",score)
 		else:
 			gamestate = GAME_STATE.CHECKING
 	updatepics()
@@ -126,17 +154,35 @@ func _process(delta):
 	updatestates()
 
 func swap_pic(a,b):
-	print("Will swap ",a," with ",b)
-
-	var tmpgrid = grid[a.x * 5 + a.y]
-	grid[a.x * 5 + a.y] = grid[b.x * 5 + b.y]
-	grid[b.x * 5 + b.y] = tmpgrid
-	changepic(a.x,a.y,grid[a.x * 5 + a.y])
-	changepic(b.x,b.y,grid[b.x * 5 + b.y])
 	change_selected(a)
 	change_selected(b)
 	selected_pic.clear()
-	gamestate = GAME_STATE.CHECKING
+	print("Will swap ",a," with ",b)
+	print("a.x:",a.x," a.y:",a.y," b.x:",b.x," b.y:",b.y)
+	animating_blocks.append(a)
+	animating_blocks.append(b)
+	toswap = [a,b]	
+	if a.x==b.x:
+		print("On same row")
+		if a.y<b.y:
+			print("a left of b")
+			change_animation(a,"go_right")
+			change_animation(b,"go_left")
+		else:
+			print("b left of a")
+			change_animation(a,"go_left")
+			change_animation(b,"go_right")
+	elif a.y==b.y:
+		print("On same column")
+		if a.x<b.x:
+			print("a above of b")
+			change_animation(a,"go_down")
+			change_animation(b,"go_up")
+		else:
+			print("b left of a")
+			change_animation(a,"go_up")
+			change_animation(b,"go_down")
+	gamestate = GAME_STATE.ANIMATING
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed() and gamestate == GAME_STATE.WAITING:
@@ -162,7 +208,7 @@ func _input(event):
 			for sp in selected_pic:
 				change_selected(sp)
 			selected_pic.clear()
-		print("Last:",selected_pic)
+		# print("Last:",selected_pic)
 		
 func _on_food_mouse_entered(posy,posx):
 	curhover.x = posx
