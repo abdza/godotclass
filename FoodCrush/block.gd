@@ -35,3 +35,4 @@ func _on_area_mouse_exited():
 
 func _on_animation_animation_finished(anim_name):
 	current_animation = ""
+	$animation.stop()

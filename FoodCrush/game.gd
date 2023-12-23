@@ -99,6 +99,7 @@ func updatestates():
 			grid[b.x * 5 + b.y] = tmpgrid
 			changepic(a.x,a.y,grid[a.x * 5 + a.y])
 			changepic(b.x,b.y,grid[b.x * 5 + b.y])
+			updatepics()
 			gamestate = GAME_STATE.CHECKING
 	if gamestate == GAME_STATE.CHECKING:
 		# print("Checking score")
@@ -148,7 +149,6 @@ func updatestates():
 		else:
 			gamestate = GAME_STATE.CHECKING
 	updatepics()
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	updatestates()
