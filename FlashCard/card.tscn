@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu1rl1cfwl4ul"]
+
+[ext_resource type="Texture2D" uid="uid://dxonbo22w6dig" path="res://images/car.jpg" id="1_gk8qy"]
+
+[node name="Card" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(69, 55, 503, 55, 504, 390, 74, 385)
+
+[node name="Car" type="Sprite2D" parent="Polygon2D"]
+position = Vector2(291, 214)
+scale = Vector2(0.2685, 0.2685)
+texture = ExtResource("1_gk8qy")

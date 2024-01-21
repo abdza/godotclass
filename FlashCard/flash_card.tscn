@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2sxkm21br0pm"]
+
+[ext_resource type="Script" path="res://flash_card.gd" id="1_ngi54"]
+[ext_resource type="PackedScene" uid="uid://bu1rl1cfwl4ul" path="res://card.tscn" id="2_04dpm"]
+
+[node name="FlashCard" type="Node2D"]
+script = ExtResource("1_ngi54")
+
+[node name="card_1" parent="." instance=ExtResource("2_04dpm")]
+position = Vector2(19, -40)
+
+[node name="card_2" parent="." instance=ExtResource("2_04dpm")]
+position = Vector2(529, -39)
+
+[node name="card_3" parent="." instance=ExtResource("2_04dpm")]
+position = Vector2(13, 314)
+
+[node name="card_4" parent="." instance=ExtResource("2_04dpm")]
+position = Vector2(535, 318)
