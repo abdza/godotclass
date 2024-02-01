@@ -8,12 +8,16 @@ script = ExtResource("1_ngi54")
 
 [node name="card_1" parent="." instance=ExtResource("2_04dpm")]
 position = Vector2(19, -40)
+cur_state = 1
 
 [node name="card_2" parent="." instance=ExtResource("2_04dpm")]
 position = Vector2(529, -39)
+cur_state = 1
 
 [node name="card_3" parent="." instance=ExtResource("2_04dpm")]
 position = Vector2(13, 314)
+cur_state = 1
 
 [node name="card_4" parent="." instance=ExtResource("2_04dpm")]
 position = Vector2(535, 318)
+cur_state = 1

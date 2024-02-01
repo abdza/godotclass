@@ -1,13 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu1rl1cfwl4ul"]
+[gd_scene load_steps=3 format=3 uid="uid://bu1rl1cfwl4ul"]
 
 [ext_resource type="Texture2D" uid="uid://dxonbo22w6dig" path="res://images/car.jpg" id="1_gk8qy"]
+[ext_resource type="Script" path="res://card.gd" id="1_up8pt"]
 
 [node name="Card" type="Node2D"]
+script = ExtResource("1_up8pt")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(69, 55, 503, 55, 504, 390, 74, 385)
 
-[node name="Car" type="Sprite2D" parent="Polygon2D"]
+[node name="picture" type="Sprite2D" parent="Polygon2D"]
 position = Vector2(291, 214)
 scale = Vector2(0.2685, 0.2685)
 texture = ExtResource("1_gk8qy")
+
+[node name="translation" type="Label" parent="."]
+offset_left = 183.0
+offset_top = 164.0
+offset_right = 407.0
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(0.2, 0.105882, 0.0901961, 1)
+theme_override_font_sizes/font_size = 70
+text = "Kereta"
+horizontal_alignment = 1
