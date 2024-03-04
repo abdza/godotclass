@@ -1,20 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bu1rl1cfwl4ul"]
+[gd_scene load_steps=4 format=3 uid="uid://bu1rl1cfwl4ul"]
 
 [ext_resource type="Texture2D" uid="uid://dxonbo22w6dig" path="res://images/car.jpg" id="1_gk8qy"]
 [ext_resource type="Script" path="res://card.gd" id="1_up8pt"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wdmu"]
+size = Vector2(436.625, 329.25)
+
 [node name="Card" type="Node2D"]
 script = ExtResource("1_up8pt")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D"]
 polygon = PackedVector2Array(69, 55, 503, 55, 504, 390, 74, 385)
 
-[node name="picture" type="Sprite2D" parent="Polygon2D"]
+[node name="picture" type="Sprite2D" parent="Area2D/Polygon2D"]
 position = Vector2(291, 214)
 scale = Vector2(0.2685, 0.2685)
 texture = ExtResource("1_gk8qy")
 
-[node name="translation" type="Label" parent="."]
+[node name="translation" type="Label" parent="Area2D/Polygon2D"]
 offset_left = 183.0
 offset_top = 164.0
 offset_right = 407.0
@@ -23,3 +28,10 @@ theme_override_colors/font_color = Color(0.2, 0.105882, 0.0901961, 1)
 theme_override_font_sizes/font_size = 70
 text = "Kereta"
 horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(287.688, 222.375)
+shape = SubResource("RectangleShape2D_4wdmu")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
